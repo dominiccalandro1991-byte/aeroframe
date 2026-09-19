@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="6" fill="#07090c"/>
-  <path d="M4 16h24M16 16l-7 8M16 16l7 8M16 6v10" stroke="#c5ccd4" stroke-width="1.75" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-label="AEROFRAME">
+  <rect width="16" height="16" rx="3" fill="#07090c"/>
+  <path fill="#c5ccd4" d="M7 2h2v4h6v2H9v4h2v1H9v1H7v-1H5v-1h2V8H1V6h6z"/>
+  <rect x="7" y="2" width="2" height="1" fill="#7aa3ad"/>
 </svg>

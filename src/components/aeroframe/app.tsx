@@ -365,7 +365,7 @@ function SidePanel() {
   const view = useAeroframe((s) => s.view);
   if (view === "RENDER") return null;
   return (
-    <aside className="pointer-events-auto absolute inset-x-0 bottom-16 z-10 max-h-[52%] overflow-y-auto border-t border-border bg-bg/95 p-4 sm:inset-y-0 sm:right-0 sm:left-auto sm:bottom-auto sm:w-[380px] sm:max-h-none sm:border-t-0 sm:border-l">
+    <aside className="pointer-events-auto absolute inset-x-0 bottom-28 z-10 max-h-[48%] overflow-y-auto border-t border-border bg-bg/95 p-4 sm:inset-y-0 sm:right-0 sm:left-auto sm:bottom-auto sm:w-[380px] sm:max-h-none sm:border-t-0 sm:border-l">
       {view === "MATERIALS" ? <MaterialsPanel /> : null}
       {view === "ASSEMBLY" ? <AssemblyPanel /> : null}
       {view === "SIMULATION" ? <SimulationPanel /> : null}
@@ -379,7 +379,7 @@ function Rail() {
   return (
     <nav
       aria-label="Workstation"
-      className="pointer-events-auto z-20 flex items-center justify-around border-t border-border bg-elevated px-2 py-1 sm:h-full sm:w-16 sm:flex-col sm:justify-start sm:gap-1 sm:border-t-0 sm:border-r sm:px-0 sm:py-4"
+      className="pointer-events-auto z-20 flex items-center justify-around border-t border-border bg-elevated px-2 py-1 max-sm:mb-14 sm:h-full sm:w-16 sm:flex-col sm:justify-start sm:gap-1 sm:border-t-0 sm:border-r sm:px-0 sm:py-4"
     >
       {NAV.map((node) => {
         const Icon = NAV_ICON[node.id];
@@ -389,6 +389,7 @@ function Rail() {
             key={node.id}
             type="button"
             onClick={() => setView(node.id)}
+            aria-label={node.label}
             aria-pressed={active}
             title={node.hint}
             className={cn(

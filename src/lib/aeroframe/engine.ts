@@ -228,8 +228,11 @@ const G = 9.80665;
 const KT = 1.943844;
 const N_POS = 4.4;
 const N_NEG = -2.2;
-const REF_MASS = 620;
+const FUEL_KG = 80;
+const CREW_KG = 155;
 const STORAGE_KEY = "aeroframe-v1";
+const DEFAULT_EMPTY = MATERIALS.reduce((sum, line) => sum + line.massKg, 0);
+const REF_MASS = DEFAULT_EMPTY + FUEL_KG + CREW_KG;
 
 export interface Envelope {
   massKg: number;
@@ -259,7 +262,7 @@ export function bomMassKg(excluded: Record<string, boolean>) {
 /** Laminar Envelope Solver — V-speeds scale with sqrt(W/Wref). */
 export function solveEnvelope(emptyKg: number, plyDelta: number): Envelope {
   const empty = emptyKg + plyDelta;
-  const massKg = empty + 80 + 155;
+  const massKg = empty + FUEL_KG + CREW_KG;
   const W = massKg * G;
   const vs = Math.sqrt((2 * W) / (RHO * WING_AREA_M2 * 1.52)) * KT;
   const vso = Math.sqrt((2 * W) / (RHO * WING_AREA_M2 * 2.05)) * KT;
